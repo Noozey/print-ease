@@ -1,0 +1,75 @@
+:root{
+    /* Defines some repative coustom colors */
+    --color--red:#b0473f;
+    --color--grey:rgb(187, 181, 181);
+    --color--crayn:rgb(233, 250, 250);
+    --color-shadow: rgb(230,230,230);
+}
+/* gives body different property like marin etc */
+body{
+    margin: 0;  
+    font-family: Inter;            
+    background-color: #fafafa;
+}
+/* Navigation section starts*/
+nav{
+    z-index: 99;
+}
+.product-list
+{
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid var(--color--grey);
+    padding: 5px;
+}
+.display {
+    display: inline-block;
+    position: relative;
+}
+
+.display:hover+.product-list
+{
+    display: block;
+}
+
+.product-list:hover {
+    display: block;
+}
+.heading{
+    display: flex;
+    border-bottom: 1px solid #b0473f;
+    font-family: sans-serif;
+    width: 100%;
+    position: sticky;
+    align-items: center;
+    height: 75px;
+    top:0px;
+    background-color: white;
+}
+.nav-menu{
+    font-size: 18px;
+    position: relative;
+    margin-left:auto;
+    margin-right: 5%;
+}
+.nav-menu a
+{
+    margin-right: 40px;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+.nav-menu a:hover 
+{
+    color: #b0473f;
+    border-radius: 20px;
+}
+.logo{
+    width: auto;
+    height: 90px;
+    margin-right: auto;
+}
+
+
+

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="Description" content="Printer selling website" />
+    <meta name="keyword" content="Buy printers" />
+    <meta name="author" content="Rohan Upreti" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>printers</title>
+    <style>
+      section {
+        z-index: 0;
+      }
+      .offers {
+        width: auto;
+        height: 550px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        background-image: url(./picture/img/offers/party.png);
+      }
+      .offers_tab {
+        height: 350px;
+        width: 70%;
+        border: 2px solid white;
+        padding: 40px;
+        border-radius: 10px;
+        background-color: white;
+        display: flex;
+        align-items: top;
+        justify-content: end;
+      }
+      .offer_discription {
+        cursor: pointer;
+      }
+      .offer-img-1 {
+        width: 32.5%;
+        height: auto;
+      }
+      .offer-img-2 {
+        display: none;
+        width: 32.5%;
+        height: auto;
+      }
+      .line {
+        border-right: 1px solid var(--color--grey);
+        height: 350px;
+        margin-right: 20px;
+        width: 1px;
+      }
+      .offer_discription {
+        border: 1px solid transparent;
+        height: auto;
+        width: 450px;
+        display: flex;
+        justify-content: center;
+        margin-right: 10%;
+      }
+      /* offers section for small screen */
+      @media (max-width: 1068px) {
+        .line {
+          height: 350px;
+          width: 75%;
+        }
+        .offers img {
+          width: 30%;
+          height: 200px;
+        }
+        .offers_tab {
+          height: 350px;
+          width: 75%;
+        }
+        .offers {
+          height: 500px;
+        }
+      }
+      @media (max-width: 1068px) {
+        .smallscreenhidden {
+          display: none;
+        }
+      }
+      /* products section has also different styles like heigh,width etc
+ also has properties like box-shadow that inhances the looks of the box. */
+      .product-group {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3%;
+      }
+      .product {
+        width: 400px;
+        height: 500px;
+        margin-top: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 15px 10px var(--color-shadow),
+          0 10px 15px 0px var(--color-shadow);
+        display: flex;
+        justify-content: center;
+        background-color: white;
+      }
+      .product:hover {
+        box-shadow: 0 10px 15px 10px var(--color-shadow),
+          0 10px 15px 0px var(--color-shadow);
+        transform: scale(1.03);
+        transition: 0.3s;
+      }
+      .product-link {
+        display: flex;
+        justify-content: center;
+      }
+      /* this part helps to give different details to the information of the product */
+      .delivery-info {
+        margin-top: 30px;
+        background-color: var(--color--red);
+        color: white;
+        width: fit-content;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .rating {
+        height: 15px;
+        width: 75%;
+        background-repeat: no-repeat;
+        text-align: center;
+        margin-top: 10px;
+        text-align: start;
+      }
+      .product-link:hover {
+        background-color: #944741;
+      }
+      .product-link {
+        width: fit-content;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: White;
+        background-color: var(--color--red);
+        border: 1px solid var(--color--red);
+        border-radius: 10px;
+        margin-top: 32px;
+        padding: 10px;
+      }
+      .close-delivery-info {
+        margin-left: 10px;
+        margin-top: 2.5px;
+      }
+      /* product section for small screen */
+      @media (max-width: 900px) {
+        .product-group {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          height: auto;
+        }
+        .product {
+          width: 450px;
+          height: 500px;
+        }
+      }
+      @media (max-width: 480px) {
+        .product {
+          height: 400px;
+          width: 350px;
+        }
+      }
+      /* Research and blog this part gives a little info about the
+ pages Blog and research section */
+      .small-info {
+        display: flex;
+        justify-content: center;
+        gap: 15%;
+        margin-top: 5%;
+        flex-wrap: wrap;
+      }
+      .Blog {
+        width: 450px;
+        height: 500px;
+        border-radius: 20px;
+        box-shadow: 0 10px 15px 10px var(--color-shadow),
+          0 10px 15px 0px var(--color-shadow);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .Research-dev {
+        width: 450px;
+        height: 500px;
+        border-radius: 20px;
+        box-shadow: 0 10px 15px 10px var(--color-shadow),
+          0 10px 15px 0px var(--color-shadow);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .cross-btn:hover {
+        color: white;
+      }
+      .img-slider {
+        border: transparent;
+        background-color: transparent;
+        font-size: 20px;
+        cursor: pointer;
+        color: red;
+        height: fit-content;
+        margin: auto;
+        transition: 0.5s;
+      }
+      .img-slider:hover {
+        color: black;
+      }
+      .product-img {
+        height: fit-content;
+      }
+      table {
+        width: 75%;
+        margin: auto;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 10px 15px 10px var(--color-shadow),
+          0 10px 15px 0px var(--color-shadow);
+        padding: 20px;
+      }
+      select {
+        border: 1px solid var(--color--red);
+        border-radius: 20px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      select:hover {
+        background-color: rgb(225, 235, 235);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navigation of the page -->
+    <nav class="heading">
+      <img class="logo" src="./picture/img/logo/logo.png" />
+      <div class="nav-menu">
+        <a href="home.html">Home</a>
+        <div class="display">
+          <a href="product.html" class="display">Products </a>
+          <div class="product-list">
+            <span>Companies:</span>
+            <a href="brother.html">Brother </a>
+            <a href="hp.html">HP</a>
+            <a href="canon.html">Canon</a>
+            <a href="epson.html">Epson</a>
+            <a href="samsung.html">Samsung</a>
+            <a href="Xerox.html">Xerox</a>
+          </div>
+        </div>
+        <a href="research.html">Research</a>
+        <a href="blog.html">Blog</a>
+        <a href="./About us/About.html">About us</a>
+      </div>
+    </nav>
+    <!-- body part of the page -->
+    <section>
+      <!--offer section -->
+      <div class="offers">
+        <div class="offers_tab" style="text-decoration: none; color: black">
+          <div class="offer_discription">
+            <div>
+              <!--offers detail-->
+              <p style="text-align: center; font-size: 29px">Todays Deal</p>
+              <!--offer details-->
+              <p
+                style="
+                  font-size: 14px;
+                  text-decoration: underline;
+                  text-align: center;
+                "
+              >
+                PIXMA G3770
+              </p>
+              <p
+                style="font-size: 16px; text-align: center; width: max-content"
+              >
+                Wireless Refillable Ink Tank Printer with Low-Cost Printing
+              </p>
+              <p
+                class="smallscreenhidden"
+                style="font-size: 14px; margin-left: 30px"
+              >
+                Available in Black, Red and White
+              </p>
+              <ul class="smallscreenhidden" style="font-size: 14px">
+                <li>Print, Scan, Copy</li>
+                <li>
+                  Print Speed (A4, ISO): up to 11 / 6 images per minute
+                  (mono/colour)
+                </li>
+                <li>Wi-Fi, AirPrint, Mopria, Direct Wireless</li>
+                <li>Recommended Monthly Print Volume: 150 - 1 500 pages</li>
+              </ul>
+              <p
+                class="smallscreenhidden"
+                style="
+                  text-align: center;
+                  font-size: 17px;
+                  text-decoration: line-through;
+                "
+              >
+                Normal price:Rs.25000
+              </p>
+              <p style="text-align: center; font-size: 24px">
+                Now at: Rs.12,000
+              </p>
+            </div>
+          </div>
+          <div class="line"></div>
+          <!--image scroll-->
+          <button class="img-slider" onclick="changeimg()"><</button>
+          <img
+            class="offer-img-1"
+            src="./picture/img/offers/1.png"
+            alt="PIXMA G3770"
+          /><!--offer image-->
+          <img
+            class="offer-img-2"
+            src="./picture/img/offers/2.png"
+            alt="PIXMA G3770"
+          />
+          <button class="img-slider" onclick="changeimg()">></button>
+        </div>
+      </div>
+      <!--all product section-->
+      <p
+        style="
+          height: fit-content;
+          font-size: 40px;
+          text-align: center;
+          color: #b0473f;
+        "
+      >
+        Products
+      </p>
+      <div class="product-group">
+        <div class="product">
+          <div class="product-img" style="width: 75%">
+            <img
+              class="img1"
+              src="./picture/img/products/1.png"
+              alt="HL-L2321D"
+              height="200px"
+            />
+            <div style="text-align: center; font-size: 20px">HL-L2321D</div>
+            <div style="margin-top: 5%">
+              <li>Compact</li>
+              <br />
+              <li>High Speed Laser Printer</li>
+            </div>
+            <div
+              class="delivery-info"
+              onclick="showDeliveryInfo('delivery-info-display0')"
+            >
+              Free Delivery
+            </div>
+            <div
+              class="delivery-info-display0"
+              style="display: none; margin-top: 10px"
+            >
+              Free delivery till 3-jan-2025
+              <img
+                class="close-delivery-info"
+                onclick="closeDeliveryInfo('delivery-info-display0')"
+                src="./picture/img/svg/10.png"
+                height="15px"
+              />
+            </div>
+            <div style="font-size: 25px; margin-top: 10%">Rs.15,000</div>
+            <div class="rating">
+              <span style="color: rgb(214, 214, 31); font-size: 20px"
+                >★★★★★</span
+              >(10)
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-img" style="width: 75%">
+            <img
+              class="img1"
+              src="./picture/img/products/2.png"
+              alt="HL-T4000DW"
+              height="200px"
+            />
+            <div style="text-align: center; font-size: 20px">HL-T4000DW</div>
+            <div style="margin-top: 5%">
+              <li>Low Cost, High Quality</li>
+              <br />
+              <li>Uncompromised Efficiency</li>
+            </div>
+            <div
+              class="delivery-info"
+              onclick="showDeliveryInfo('delivery-info-display1')"
+            >
+              Free Delivery
+            </div>
+            <div
+              class="delivery-info-display1"
+              style="display: none; margin-top: 10px"
+            >
+              Free delivery till 3-jan-2025
+              <img
+                class="close-delivery-info"
+                onclick="closeDeliveryInfo('delivery-info-display1')"
+                src="./picture/img/svg/10.png"
+                height="15px"
+              />
+            </div>
+            <div style="font-size: 25px; margin-top: 10%">Rs.70,000</div>
+            <div class="rating">
+              <span style="color: rgb(214, 214, 31); font-size: 20px"
+                >★★★★★</span
+              >(75)
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <div class="product-img">
+            <img
+              class="img1"
+              src="./picture/img/products/3.png"
+              alt="PIXMA G3770"
+              height="200px"
+            />
+            <div style="text-align: center; font-size: 20px">PIXMA G3770</div>
+            <div style="margin-top: 5%">
+              <li>Print Speed (A4, ISO):up to 11 / 6 ipm</li>
+              <br />
+              <li>Wi-Fi, AirPrint, Mopria, Direct Wireless</li>
+            </div>
+            <div
+              class="delivery-info"
+              onclick="showDeliveryInfo('delivery-info-display2')"
+            >
+              Free Delivery
+            </div>
+            <div
+              class="delivery-info-display2"
+              style="display: none; margin-top: 10px"
+            >
+              Free delivery till 3-jan-2025
+              <img
+                class="close-delivery-info"
+                onclick="closeDeliveryInfo('delivery-info-display2')"
+                src="./picture/img/svg/10.png"
+                height="15px"
+              />
+            </div>
+            <div style="font-size: 25px; margin-top: 10%">Rs.25,000</div>
+            <div class="rating">
+              <span style="color: rgb(214, 214, 31); font-size: 20px"
+                >★★★★★</span
+              >(50)
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="product-link"
+        >View more products <img src="./picture/img/svg/1.png" height="30px"
+      /></a>
+      <!-- Blog and research section -->
+      <div class="small-info">
+        <div class="Blog">
+          <h1 style="font-weight: 350; text-align: center; margin-top: -10%">
+            Blog
+          </h1>
+          <p style="margin-top: 50px; text-align: center">
+            The technology is the applicattion of scintific knowledge,skill,
+            tools and technology which help to fulfill human needs and improve
+            our ability to control and understand the natural world summarize
+          </p>
+          <img
+            src="./picture/img/Blog and research/1.jpeg"
+            height="200px"
+            style="margin-bottom: 20px"
+          /><br />
+          <a
+            href="#"
+            style="
+              border: 1px solid #b0473f;
+              color: white;
+              background-color: #b0473f;
+              text-decoration: none;
+              padding: 5px;
+              border-radius: 20px;
+            "
+          >
+            View More
+          </a>
+        </div>
+        <div class="Research-dev">
+          <h1 style="font-weight: 350; text-align: center; margin-top: -10%">
+            Research and Development
+          </h1>
+          <p style="margin-top: 50px; text-align: center">
+            In this section we have shown how we did this project.What ideas we
+            used for the making of the web page and also how we implemented it.
+          </p>
+          <img
+            src="./picture/img/Blog and research/2.png"
+            height="200px"
+            style="margin-bottom: 20px"
+          /><br />
+          <a
+            href="#"
+            style="
+              border: 1px solid #b0473f;
+              color: white;
+              background-color: #b0473f;
+              text-decoration: none;
+              padding: 5px;
+              border-radius: 20px;
+            "
+          >
+            View More
+          </a>
+        </div>
+      </div>
+      <!-- compare printers -->
+      <h1 style="font-weight: 300; text-align: center; margin-top: 40px">
+        Compare Spec
+      </h1>
+      <table class="compare">
+        <tr>
+          <td>
+            <select onchange="selectPrinter(event,'img')">
+              <option value="1" selected>HL-L2321D</option>
+              <option value="2">HL-T4000DW</option>
+              <option value="3">PIXMA G3770</option>
+            </select>
+          </td>
+          <td>
+            <select onchange="selectPrinter(event,'imgs')">
+              <option value="1">HL-L2321D</option>
+              <option value="2" selected>HL-T4000DW</option>
+              <option value="3">PIXMA G3770</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <img id="img" src="./picture/img/compare/1.png" height="400px" />
+          </td>
+          <td>
+            <img id="imgs" src="./picture/img/compare/2.png" height="400px" />
+          </td>
+        </tr>
+      </table>
+    </section>
+    <footer>
+      <p
+        style="
+          text-align: center;
+          font-family: Palatino;
+          margin-top: 40px;
+          font-size: 17px;
+        "
+      >
+        &copy;PrinterEase.org
+      </p>
+      <p style="text-align: center; font-family: Palatino; font-size: 17px">
+        &#xf08c;Rohan Upreti
+      </p>
+    </footer>
+  </body>
+  <script src="./script.js"></script>
+</html>
